@@ -42,7 +42,7 @@
         text-transform: uppercase;
         color: #f92b7d;
         text-align: center;
-        margin-bottom: 40px;
+        margin-top: 40px;
     }
     &__div {
         display: flex;
@@ -79,7 +79,6 @@
             font-weight: 600;
             color: #525252;
             text-align: center;
-            font-weight: 600;
             font-size: 15px;
             line-height: 22px;
             text-align: center;

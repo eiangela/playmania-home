@@ -19,6 +19,7 @@
           <v-btn append-icon="mdi-account" class="button-login" color="#fff" variant="tonal">
             Entre/Cadastre-se
           </v-btn>
+
         </v-col>
       </v-row>
     </v-container>
