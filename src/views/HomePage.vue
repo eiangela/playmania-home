@@ -24,7 +24,7 @@
         <h2 class="title-section">
           OFERTAS ONLINE IMPERDÍVEIS!! GARANTA A SUA!
         </h2>
-        <p class="sub-title-section">
+        <p class="sub-title-section mb-6">
           Curtir no Playcenter Family e no Playland ficou simples assim: é só
           escolher as melhores ofertas, carregar o seu Playcard de qualquer
           lugar e dar play na diversão! Aproveite e venha se divertir muito com

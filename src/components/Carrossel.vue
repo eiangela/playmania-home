@@ -1,16 +1,16 @@
 <template>
-  >
-  <v-slide-group show-arrows>
+  <v-card class="mx-auto" width="1100" height="550" density="compact">
+  <v-slide-group show-arrows  >
     <v-slide-group-item v-for="(item, index) in items" :key="index">
       <v-container>
-        <v-row justify="center" align="center">
+        <v-row>
           <v-col cols="12" sm="6" md="4" lg="4">
-            <v-card width="340" height="500" class="border" elevation="3">
+            <v-card  width="300" height="500" class="border" elevation="3">
               <v-img :src="item.image"></v-img>
               <v-card-title class="pt-3 text-center title-wrap">
                   {{  item.title }}
                </v-card-title>
-              <v-card-text class="text-center ">
+              <v-card-text class="text-center info-credits">
                 <p>{{ item.description }}</p>
               </v-card-text>
               <v-card-actions class="d-flex justify-center">
@@ -27,6 +27,7 @@
       </v-container>
     </v-slide-group-item>
   </v-slide-group>
+  </v-card>
 </template>
 
 <script>
@@ -92,6 +93,21 @@ export default {
 <style lang="scss">
 .title-wrap {
   white-space: normal !important;
+  font-weight: 500;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  color: #f92b7d;
+  text-align: center;
+  margin-bottom: 1px;
 }
 
+.info-credits {
+  font-family: "Public Sans", sans-serif;
+  color: #525252;
+  font-size: 15px;
+  letter-spacing: -0.4px;
+  font-weight: 500;
+  margin: 0 auto;
+  font-weight: 600;
+}
 </style>

@@ -16,15 +16,81 @@
             <a href="" class="decoration">MINHA ÁREA</a>
           </nav>
 
-          <v-btn append-icon="mdi-account" class="button-login" color="#fff" variant="tonal">
-            Entre/Cadastre-se
-          </v-btn>
+          <v-menu v-model="menu" :close-on-content-click="false" location="end">
+            <template v-slot:activator="{ props }">
+              <v-btn
+                color="#fff"
+                variant="tonal"
+                class="menu-login decoration"
+                v-bind="props"
+              >
+                Entre/Cadastre-se
+              </v-btn>
+            </template>
 
+            <v-card min-width="390" color="#EC407A">
+              <v-list bg-color="#EC407A">
+                <v-list-item>
+                  <v-text-field variant="solo" label="CPF"></v-text-field>
+                  <v-text-field
+                    class="mb-n3"
+                    variant="solo"
+                    label="SENHA"
+                  ></v-text-field>
+                  <a class="decoration" href="#">Esqueci minha senha</a>
+                  <v-btn
+                    class="float-right"
+                    color="#fff"
+                    variant="tonal"
+                    @click="menu = false"
+                  >
+                    ENTRAR
+                  </v-btn>
+                </v-list-item>
+              </v-list>
+
+              <v-divider color="#fff"></v-divider>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+
+                <v-btn
+                  color="#fff"
+                  width="390"
+                  variant="tonal"
+                  @click="menu = false"
+                >
+                  Entrar pelo Facebook
+                </v-btn>
+              </v-card-actions>
+
+              <v-card-actions>
+                <v-spacer></v-spacer>
+
+                <v-btn
+                  color="#fff"
+                  width="390"
+                  variant="tonal"
+                  @click="menu = false"
+                >
+                  Cadastre-se agora
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-menu>
         </v-col>
       </v-row>
     </v-container>
   </v-app-bar>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    menu: false,
+  }),
+};
+</script>
 
 <style>
 .decoration {
@@ -38,7 +104,7 @@
   margin-right: 100px;
 }
 
-.button-login {
+.menu-login {
   margin-left: 100px;
 }
 </style>
