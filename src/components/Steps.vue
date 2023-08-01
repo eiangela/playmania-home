@@ -1,47 +1,58 @@
 <template>
-  <v-container>
-    <v-row>
-      <v-col>
-        <h2 class="steps__title">Veja como é fácil garantir a diversão</h2>
-      </v-col>
-    </v-row>
-    <v-row justify="center">
-      <v-col cols="8" class="steps">
-        <div class="steps__div pa-8">
-          <div class="steps__wrapper">
-            <div class="steps__card">
-              <h3>Escolha</h3>
-              <p>
-                Escolha a oferta que mais deseja para brincar no Playcenter
-                Family ou Playland.
-              </p>
+  <div class="grey-image">
+    <v-container>
+      <v-row>
+        <v-col>
+          <h2 class="steps__title">Veja como é fácil garantir a diversão</h2>
+        </v-col>
+      </v-row>
+      <v-row justify="center">
+        <v-col cols="8" class="steps">
+          <div class="steps__div pa-8">
+            <div class="steps__wrapper">
+              <div class="steps__card">
+                <h3>Escolha</h3>
+                <p>
+                  Escolha a oferta que mais deseja para brincar no Playcenter
+                  Family ou Playland.
+                </p>
+              </div>
+            </div>
+            <div class="steps__wrapper">
+              <div class="steps__card">
+                <h3>Carregue</h3>
+                <p>
+                  Você pode carregar a oferta diretamente no seu Playcard ou
+                  adquirir um voucher.
+                </p>
+              </div>
+            </div>
+            <div class="steps__wrapper">
+              <div class="steps__card">
+                <h3>Divirta-se</h3>
+                <p>
+                  Após conferir os detalhes, é só finalizar a compra, aguardar a
+                  liberação do pedido e curtir de montão!
+                </p>
+              </div>
             </div>
           </div>
-          <div class="steps__wrapper">
-            <div class="steps__card">
-              <h3>Carregue</h3>
-              <p>
-                Você pode carregar a oferta diretamente no seu Playcard ou
-                adquirir um voucher.
-              </p>
-            </div>
-          </div>
-          <div class="steps__wrapper">
-            <div class="steps__card">
-              <h3>Divirta-se</h3>
-              <p>
-                Após conferir os detalhes, é só finalizar a compra, aguardar a
-                liberação do pedido e curtir de montão!
-              </p>
-            </div>
-          </div>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <style lang="scss">
+.grey-image {
+  background-image: url("../assets/images/bg-passo-a-passo.png");
+  margin-top: 2%;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 660px;
+}
+
 .steps {
   position: relative;
   &__title {
@@ -50,7 +61,6 @@
     text-transform: uppercase;
     color: #f92b7d;
     text-align: center;
-    margin-top: 40px;
   }
   &__div {
     display: flex;
@@ -58,7 +68,6 @@
     align-items: stretch;
     flex-wrap: nowrap;
     flex-direction: row;
-
   }
   &__wrapper {
     background-image: url("../assets/images/hexagono.png");
