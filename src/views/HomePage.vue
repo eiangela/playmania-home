@@ -51,7 +51,7 @@
                 <br />
                 R$ 110 em créditos + R$ 110 em bônus
               </p>
-              <div class="box-offers-fixed-middle d-flex justify-center mb-5">
+              <div class="box-offers-fixed-middle d-flex justify-center">
                 <div class="money">R$</div>
                 <div class="money1">110</div>
                 <div class="money2">,00</div>
@@ -64,7 +64,7 @@
 
           <!-- v-col para a imagem -->
           <v-col cols="12" md="5">
-            <div class="menina">
+            <div class="girl">
               <img
                 src="../assets/images/botao-oferta-ticko-agosto.png"
                 alt=""
@@ -75,6 +75,74 @@
         </v-row>
       </v-container>
     </section>
+
+    <section id="club-info">
+      <v-container>
+        <v-row>
+          <v-col cols="12">
+            <div class="club-content">
+              <h2 class="title-section purple">
+                O clube de vantagens mais divertido!
+              </h2>
+              <p class="sub-title-section text-center">
+                Um Playmaníaco se diverte muito mais. Sabe por quê? Além das
+                promoções imperdíveis, o Playmania traz muitas outras vantagens.
+                Conheça todas:
+              </p>
+              <Club />
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+    </section>
+
+    <section id="party-info">
+      <div class="bg-bottom">
+        <v-container>
+          <v-row>
+            <!-- v-col para a imagem -->
+            <v-col cols="12" md="6">
+              <img
+                class="menina"
+                src="../assets/images/menina-festas.png"
+                alt=""
+                height="500"
+              />
+            </v-col>
+
+
+            <!-- v-col para o texto -->
+            <v-col cols="12" md="4">
+              <div class="box-offers-fixed-top text-center">
+                <h2 class="title-celebrate">
+                  Já pensou em comemorar seu aniversário em um parque de
+                  diversões com sua família e amigos?
+                </h2>
+                <p class="subtitle-celebrate">
+                  No Playland ou Playcenter Family, você pode! Salões exclusivos
+                  e diversas atrações que vão deixar sua festa ainda mais
+                  divertida. E o melhor: por muito menos do que você imagina!
+                  Está esperando o quê? Venha comemorar com a gente.
+                </p>
+                <v-btn class="btn-more text-none rounded-lg" color="#f92b7d"
+                  >Saiba mais</v-btn
+                >
+              </div>
+            </v-col>
+              <div class="celebrate-payment">
+                <div class="text-part">
+                  Parcele
+                  <br />
+                  Sua festa
+                </div>
+                <div class="text-emt">Em até</div>
+                <div class="text-vzs">10X</div>
+                <div class="text-sj">Sem juros</div>
+              </div>
+          </v-row>
+        </v-container>
+      </div>
+    </section>
   </v-main>
 
   <v-footer></v-footer>
@@ -84,6 +152,7 @@
 import AppBar from "../components/AppBar.vue";
 import Carrossel from "../components/Carrossel.vue";
 import Steps from "../components/Steps.vue";
+import Club from "../components/Club.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -104,6 +173,7 @@ svg {
   text-transform: uppercase;
   color: #f92b7d;
   text-align: center;
+  margin-top: 5%;
   margin-bottom: 10px;
 }
 
@@ -170,5 +240,74 @@ svg {
   padding-bottom: 0.3em;
   border-radius: 6px;
   margin-bottom: 50px;
+}
+
+#call-all {
+  background-color: #eeeeee;
+}
+
+.purple {
+  color: #6d63cd;
+}
+
+.bg-bottom {
+  background-image: url("https://hsiteplaymania.azurewebsites.net/assets/img/bg-amarelo.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  height: 755px;
+}
+
+.title-celebrate {
+  font-weight: 600;
+  padding-right: 30px;
+  font-size: 35px;
+  margin-top: 8em;
+  margin-bottom: 2%;
+  text-transform: uppercase;
+  color: #f94297;
+  text-align: left;
+  font-family: "Public Sans", sans-serif;
+}
+
+.menina {
+  margin-top: 100px;
+  float: right;
+  width: 475px;
+  height: 87%;
+}
+
+.subtitle-celebrate {
+  font-size: 16px;
+  text-align: left;
+  color: #525252;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.5em;
+  margin-top: 0;
+  font-family: "Public Sans", sans-serif;
+}
+
+.btn-more {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 500;
+  padding-left: 1.4em;
+  padding-right: 1.4em;
+  padding-top: 0.7em;
+  padding-bottom: 1.7em;
+  float: left;
+}
+
+.celebrate-payment {
+  color: #000;
+}
+
+.text-part {
+  width: 182px;
+  padding-left: 23px;
+  padding-top: 10px;
+  float: left;
+  font-weight: 500;
+  font-size: 16px;
 }
 </style>
