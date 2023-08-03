@@ -97,55 +97,53 @@
     </section>
 
     <section id="party-info">
-      <div class="bg-bottom">
-        <v-container>
-          <v-row>
-            <!-- v-col para a imagem -->
-            <v-col cols="12" md="6">
-              <img
-                class="menina"
-                src="../assets/images/menina-festas.png"
-                alt=""
-                height="500"
-              />
-            </v-col>
-
-
-            <!-- v-col para o texto -->
-            <v-col cols="12" md="4">
-              <div class="box-offers-fixed-top text-center">
-                <h2 class="title-celebrate">
-                  Já pensou em comemorar seu aniversário em um parque de
-                  diversões com sua família e amigos?
-                </h2>
-                <p class="subtitle-celebrate">
-                  No Playland ou Playcenter Family, você pode! Salões exclusivos
-                  e diversas atrações que vão deixar sua festa ainda mais
-                  divertida. E o melhor: por muito menos do que você imagina!
-                  Está esperando o quê? Venha comemorar com a gente.
-                </p>
-                <v-btn class="btn-more text-none rounded-lg" color="#f92b7d"
-                  >Saiba mais</v-btn
-                >
-              </div>
-            </v-col>
-              <div class="celebrate-payment">
-                <div class="text-part">
+      <v-container>
+        <v-row>
+          <!-- v-col para a imagem -->
+          <v-col cols="12" md="6">
+            <div class="bg-celebrate-payment float-right">
+              <div class="celebrate-payment float-right">
+                <div class="text-part float-left">
                   Parcele
                   <br />
                   Sua festa
                 </div>
-                <div class="text-emt">Em até</div>
-                <div class="text-vzs">10X</div>
+                <div class="text-emt float-left">Em até</div>
+                <div class="text-vzs float-left">10X</div>
                 <div class="text-sj">Sem juros</div>
               </div>
-          </v-row>
-        </v-container>
-      </div>
+            </div>
+          </v-col>
+
+          <!-- v-col para o texto -->
+          <v-col cols="12" md="4">
+            <div class="box-offers-fixed-top text-center">
+              <h2 class="title-celebrate">
+                Já pensou em comemorar seu aniversário em um parque de diversões
+                com sua família e amigos?
+              </h2>
+              <p class="subtitle-celebrate">
+                No Playland ou Playcenter Family, você pode! Salões exclusivos e
+                diversas atrações que vão deixar sua festa ainda mais divertida.
+                E o melhor: por muito menos do que você imagina! Está esperando
+                o quê? Venha comemorar com a gente.
+              </p>
+              <v-btn
+                class="btn-more text-none rounded-lg float-left"
+                color="#f92b7d"
+                >Saiba mais</v-btn
+              >
+            </div>
+          </v-col>
+        </v-row>
+      </v-container>
+      <div class="topo-footer-int"></div>
     </section>
   </v-main>
 
-  <v-footer></v-footer>
+  <v-footer id="color-foot"> 
+    <FooterPage/>
+  </v-footer>
 </template>
 
 <script setup>
@@ -153,6 +151,7 @@ import AppBar from "../components/AppBar.vue";
 import Carrossel from "../components/Carrossel.vue";
 import Steps from "../components/Steps.vue";
 import Club from "../components/Club.vue";
+import FooterPage from "../components/FooterPage.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -250,7 +249,7 @@ svg {
   color: #6d63cd;
 }
 
-.bg-bottom {
+#party-info {
   background-image: url("https://hsiteplaymania.azurewebsites.net/assets/img/bg-amarelo.png");
   background-position: bottom;
   background-repeat: no-repeat;
@@ -267,13 +266,6 @@ svg {
   color: #f94297;
   text-align: left;
   font-family: "Public Sans", sans-serif;
-}
-
-.menina {
-  margin-top: 100px;
-  float: right;
-  width: 475px;
-  height: 87%;
 }
 
 .subtitle-celebrate {
@@ -295,19 +287,64 @@ svg {
   padding-right: 1.4em;
   padding-top: 0.7em;
   padding-bottom: 1.7em;
-  float: left;
+}
+
+.bg-celebrate-payment {
+  background-image: url("../assets/images/menina-festas.png");
+  margin-top: 100px;
+  width: 400px;
+  height: 600px;
+  font-family: "Public Sans", sans-serif;
 }
 
 .celebrate-payment {
-  color: #000;
+  width: 50%;
+  color: #fff;
+  font-weight: 900;
+  margin-top: 85%;
 }
 
 .text-part {
   width: 182px;
-  padding-left: 23px;
-  padding-top: 10px;
-  float: left;
-  font-weight: 500;
+  padding-top: 25px;
+  font-weight: 600;
   font-size: 16px;
+  font-family: "Public Sans", sans-serif;
+  text-transform: uppercase;
+}
+
+.text-emt {
+  writing-mode: tb-rl;
+  transform: rotate(180deg);
+  font-weight: 500;
+  transform-origin: 0;
+  font-size: 14px;
+  margin-top: 4px;
+  text-transform: uppercase;
+  margin-left: 22px;
+}
+
+.text-vzs {
+  width: 114px;
+  height: 68px;
+  font-size: 62px;
+  text-align: right;
+  margin-top: -15px;
+  margin-left: -32px;
+  font-weight: 500;
+}
+
+.text-sj {
+  font-size: 16px;
+  font-weight: 600;
+  clear: both;
+  display: grid;
+  text-align: right;
+  margin-right: 50px;
+  text-transform: uppercase;
+}
+
+#color-foot {
+  background-color: #EBEBEB;
 }
 </style>
