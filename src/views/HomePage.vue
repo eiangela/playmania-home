@@ -141,9 +141,11 @@
     </section>
   </v-main>
 
-  <v-footer id="color-foot"> 
-    <FooterPage/>
+  <v-footer id="color-foot">
+    <FooterPage />
+    <FaleConosco />
   </v-footer>
+
 </template>
 
 <script setup>
@@ -152,6 +154,7 @@ import Carrossel from "../components/Carrossel.vue";
 import Steps from "../components/Steps.vue";
 import Club from "../components/Club.vue";
 import FooterPage from "../components/FooterPage.vue";
+import FaleConosco from "../components/FaleConosco.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -345,6 +348,6 @@ svg {
 }
 
 #color-foot {
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
 }
 </style>

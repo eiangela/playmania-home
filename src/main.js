@@ -4,6 +4,8 @@ import vuetify from './plugins/vuetify'
 
 import './assets/main.css'
 
+import 'animate.css';
+
 
 
 createApp(App)

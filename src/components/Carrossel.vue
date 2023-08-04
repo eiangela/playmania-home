@@ -1,6 +1,6 @@
 <template>
   <v-sheet class="mx-auto" width="1100" height="550" density="compact">
-    <v-slide-group show-arrows v-model="activeSlide" @input="resetTimer">
+    <v-slide-group show-arrows v-model="activeSlide" >
       <v-slide-group-item v-for="(item, index) in items" :key="index">
         <v-container>
           <v-row>
@@ -109,7 +109,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .title-wrap {
   white-space: normal !important;
   font-weight: 500;

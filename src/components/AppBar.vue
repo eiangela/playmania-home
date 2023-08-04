@@ -92,7 +92,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .decoration {
   text-decoration: none;
   color: #fff;
