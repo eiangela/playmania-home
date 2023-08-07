@@ -96,7 +96,7 @@
       </v-container>
     </section>
 
-    <section id="party-info">
+    <section id="party-info" class="g">
       <v-container>
         <v-row>
           <!-- v-col para a imagem -->
@@ -117,7 +117,7 @@
 
           <!-- v-col para o texto -->
           <v-col cols="12" md="4">
-            <div class="box-offers-fixed-top text-center">
+            <div class="box-offers-fixed-top text-center wow zoomIn" data-wow-delay="2s">
               <h2 class="title-celebrate">
                 Já pensou em comemorar seu aniversário em um parque de diversões
                 com sua família e amigos?
@@ -149,12 +149,27 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import AppBar from "../components/AppBar.vue";
 import Carrossel from "../components/Carrossel.vue";
 import Steps from "../components/Steps.vue";
 import Club from "../components/Club.vue";
 import FooterPage from "../components/FooterPage.vue";
 import FaleConosco from "../components/FaleConosco.vue";
+import WOW from "wow.js";
+
+onMounted(() => {
+  let wow = new WOW(
+                      {
+                      boxClass:     'wow',      // default
+                      animateClass: 'animated', // default
+                      offset:       0,          // default
+                      mobile:       true,       // default
+                      live:         true        // default
+                    }
+                    )
+                    wow.init();
+});
 </script>
 
 <style lang="scss" scoped>

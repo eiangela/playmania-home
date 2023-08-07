@@ -3,7 +3,7 @@
     <img
       class="faleconosco-clube"
       src="https://hsiteplaymania.azurewebsites.net/assets/img/ico-faleconosco.png"
-      @click="showForm = true"
+      @click="toggleForm"
     />
 
     <img
@@ -23,6 +23,8 @@
         label="Nome"
         variant="solo"
         required
+        bg-color="#DFE7E9"
+        density="compact"
       ></v-text-field>
 
       <v-text-field
@@ -30,6 +32,8 @@
         label="Telefone"
         variant="solo"
         required
+        bg-color="#DFE7E9"
+        density="compact"
       ></v-text-field>
 
       <v-text-field
@@ -37,6 +41,8 @@
         label="E-mail"
         variant="solo"
         required
+        bg-color="#DFE7E9"
+        density="compact"
       ></v-text-field>
 
       <v-select
@@ -45,6 +51,8 @@
         label="Selecione uma opção"
         variant="solo"
         required
+        bg-color="#DFE7E9"
+        density="compact"
       ></v-select>
 
       <v-textarea
@@ -52,40 +60,38 @@
         label="Mensagem"
         variant="solo"
         required
+        bg-color="#DFE7E9"
+        density="compact"
       >
       </v-textarea>
 
       <v-btn
         class="float-right"
-        color="#fff"
+        color="#F96CCF"
         variant="tonal"
-        type="submit"
+        type="button"
         @click="submitForm"
       >
         Enviar
-
-        <v-dialog
-          v-model="dialog"
-          activator="parent"
-          width="500"
-          class="text-center"
-        >
-          <v-card>
-            <v-card-text> Contato enviado com sucesso. </v-card-text>
-            <v-card-actions>
-              <v-btn
-                class="teste-btn"
-                color="#EC407A"
-                variant="tonal"
-                block
-                @click="dialog = false"
-                >Fechar</v-btn
-              >
-            </v-card-actions>
-          </v-card>
-        </v-dialog>
       </v-btn>
     </form>
+
+    <v-dialog v-model="dialog" width="500" class="text-center">
+      <v-card>
+        <v-card-text> Contato enviado com sucesso. </v-card-text>
+        <v-card-actions>
+          <v-btn
+            class="teste-btn"
+            color="#EC407A"
+            variant="tonal"
+            block
+            @click="dialog = false"
+          >
+            Fechar
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
@@ -96,7 +102,6 @@ export default {
       dialog: false,
       showVoltarTopo: false,
       showForm: false,
-      showSuccessDialog: false,
       name: { value: "" },
       phone: { value: "" },
       email: { value: "" },
@@ -130,44 +135,45 @@ export default {
     scrollToTop() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     },
+    canSubmit() {
+      if (
+        this.name.value.trim() !== "" &&
+        this.phone.value.trim() !== "" &&
+        this.email.value.trim() !== "" &&
+        this.select.value.trim() !== "" &&
+        this.message.value.trim() !== ""
+      ) {
+        // Todos os campos estão preenchidos, podemos exibir o diálogo de sucesso
+        return true;
+      } else {
+        // Algum campo não foi preenchido, não exibimos o diálogo
+        return false;
+      }
+    },
+    submitForm() {
+      if (this.canSubmit()) {
+        // Se todos os campos obrigatórios estão preenchidos, então exibe o diálogo
+        console.log("Form submitted:");
+        console.log("Name:", this.name.value);
+        console.log("Phone:", this.phone.value);
+        console.log("Select:", this.select.value);
+        console.log("Email:", this.email.value);
 
-canSubmit() {
-  if (
-    this.name.value.trim() !== "" &&
-    this.phone.value.trim() !== "" &&
-    this.email.value.trim() !== "" &&
-    this.select.value.trim() !== "" &&
-    this.message.value.trim() !== ""
-  ) {
-    // Todos os campos estão preenchidos, podemos exibir o diálogo de sucesso
-    return true;
-  } else {
-    // Algum campo não foi preenchido, não exibimos o diálogo
-    return false;
-  }
-},
+        // Reset dos campos após o envio (opcional, será feito somente após o usuário clicar no botão "Fechar" do diálogo)
+        this.handleReset();
 
-submitForm() {
-  if (this.canSubmit()) {
-    // Se todos os campos obrigatórios estão preenchidos, então exibe o diálogo
-    console.log("Form submitted:");
-    console.log("Name:", this.name.value);
-    console.log("Phone:", this.phone.value);
-    console.log("Email:", this.email.value);
+        // Exibindo o diálogo de sucesso
+        this.dialog = true;
 
-    // Reset dos campos após o envio
-    this.handleReset();
-
-    // Fechando o formulário após o envio (opcional)
-    this.showForm = false;
-
-    // Exibindo o diálogo de sucesso
-    this.dialog = true;
-  } else {
-    // Se algum campo obrigatório não foi preenchido, não exibe o diálogo
-    alert('Preencha todos os campos obrigatórios.');
-  }
-},
+        // Fechando o formulário após o envio (opcional)
+        this.showForm = false;
+      } else {
+        // Se algum campo obrigatório não foi preenchido, não exibe o diálogo de sucesso
+        alert(
+          "Preencha todos os campos obrigatórios antes de enviar o formulário."
+        );
+      }
+    },
     handleReset() {
       // Limpar os campos
       this.name.value = "";
@@ -175,8 +181,16 @@ submitForm() {
       this.email.value = "";
       this.select.value = "";
       this.message.value = "";
+    },
 
+    toggleForm() {
+      // Alterna o valor de showForm entre true e false
+      this.showForm = !this.showForm;
 
+      // Opcional: Limpar os campos ao fechar o formulário
+      if (!this.showForm) {
+        this.handleReset();
+      }
     },
   },
 };
@@ -198,7 +212,6 @@ submitForm() {
   right: 50px;
   cursor: pointer;
   opacity: 0;
-  pointer-events: none;
   transition: opacity 0.2s ease;
 }
 
@@ -211,10 +224,8 @@ submitForm() {
   z-index: 1000;
   bottom: 120px;
   left: 100px;
-  background-color: #ec407a;
+  background-color: #fff;
   padding: 20px;
-  border: 1px solid #ccc;
   font-family: "Public Sans", sans-serif;
 }
-
 </style>

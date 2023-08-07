@@ -8,8 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "vue": "^3.3.4",
-    "vuetify": "^3.3.9"
+    "vuetify": "^3.3.9",
+    "wow.js": "^1.2.2"
   },
   "devDependencies": {
     "@mdi/font": "^7.2.96",

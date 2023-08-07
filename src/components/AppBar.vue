@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar :elevation="6" color="#EC407A">
+  <v-app-bar :elevation="6" color="#F96CCF">
     <v-container>
       <v-row>
         <v-col cols="12" class="d-flex justify-center align-center">
@@ -7,8 +7,8 @@
             class="logo-playmania-header"
             src="https://hsiteplaymania.azurewebsites.net/assets/img/logo.png"
             alt="Logotipo Playmania"
-            width="238"
-            height="57"
+            width="210"
+            height="50"
           />
           <nav>
             <a href="" class="mr-7 decoration">OFERTAS</a>
@@ -16,7 +16,7 @@
             <a href="" class="decoration">MINHA ÁREA</a>
           </nav>
 
-          <v-menu v-model="menu" :close-on-content-click="false" location="end">
+          <v-menu v-model="menu" :close-on-content-click="false" location="bottom">
             <template v-slot:activator="{ props }">
               <v-btn
                 color="#fff"
@@ -28,14 +28,15 @@
               </v-btn>
             </template>
 
-            <v-card min-width="390" color="#EC407A">
-              <v-list bg-color="#EC407A">
+            <v-card min-width="390" color="#F96CCF">
+              <v-list bg-color="#F96CCF">
                 <v-list-item>
-                  <v-text-field variant="solo" label="CPF"></v-text-field>
+                  <v-text-field variant="solo" density="compact" label="CPF"></v-text-field>
                   <v-text-field
                     class="mb-n3"
                     variant="solo"
                     label="SENHA"
+                    density="compact"
                   ></v-text-field>
                   <a class="decoration" href="#">Esqueci minha senha</a>
                   <v-btn
@@ -98,6 +99,7 @@ export default {
   color: #fff;
   font-family: "Public Sans", sans-serif;
   font-size: 13px;
+  font-weight: 600;
 }
 
 .logo-playmania-header {
