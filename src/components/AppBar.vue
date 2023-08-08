@@ -1,5 +1,10 @@
 <template>
-  <v-app-bar :elevation="6" color="#F96CCF">
+  <v-app-bar
+    elevation="0"
+    :color="appBarColor"
+    class="app-bar"
+    @scroll="handleScroll"
+  >
     <v-container>
       <v-row>
         <v-col cols="12" class="d-flex justify-center align-center">
@@ -16,7 +21,11 @@
             <a href="" class="decoration">MINHA ÁREA</a>
           </nav>
 
-          <v-menu v-model="menu" :close-on-content-click="false" location="bottom">
+          <v-menu
+            v-model="menu"
+            :close-on-content-click="false"
+            location="bottom"
+          >
             <template v-slot:activator="{ props }">
               <v-btn
                 color="#fff"
@@ -31,7 +40,11 @@
             <v-card min-width="390" color="#F96CCF">
               <v-list bg-color="#F96CCF">
                 <v-list-item>
-                  <v-text-field variant="solo" density="compact" label="CPF"></v-text-field>
+                  <v-text-field
+                    variant="solo"
+                    density="compact"
+                    label="CPF"
+                  ></v-text-field>
                   <v-text-field
                     class="mb-n3"
                     variant="solo"
@@ -87,13 +100,42 @@
 
 <script>
 export default {
-  data: () => ({
-    menu: false,
-  }),
+  data() {
+    return {
+      menu: false,
+      appBarColor: "transparent",
+      lastScrollPosition: 0,
+    };
+  },
+  methods: {
+    handleScroll() {
+      const currentScrollPosition = window.scrollY;
+
+      if (currentScrollPosition > 0) {
+        // Rolagem para baixo
+        this.appBarColor = "#F96CCF";
+      } else {
+        // No topo da página
+        this.appBarColor = "transparent";
+      }
+
+      this.lastScrollPosition = currentScrollPosition;
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.app-bar {
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
 .decoration {
   text-decoration: none;
   color: #fff;

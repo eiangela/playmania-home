@@ -4,23 +4,21 @@
   <v-main>
     <section id="banner">
       <v-layout align-center justify-center class="background-image-banner">
-        <svg
-          class="svg-img"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path
-            class="svg-img"
             fill="#fff"
             fill-opacity="1"
-            d="M0,224L80,229.3C160,235,320,245,480,261.3C640,277,800,299,960,277.3C1120,256,1280,192,1360,160L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+            d="M0,256L40,256C80,256,160,256,240,240C320,224,400,192,480,192C560,192,640,224,720,224C800,224,880,192,960,186.7C1040,181,1120,203,1200,202.7C1280,203,1360,181,1400,170.7L1440,160L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
           ></path>
         </svg>
       </v-layout>
     </section>
 
     <section id="promotions">
-      <div class="text-main text-center mt-5">
+      <div
+        class="text-main text-center mt-5 wow fadeInRight"
+        data-wow-delay="0.1s"
+      >
         <h2 class="title-section">
           OFERTAS ONLINE IMPERDÍVEIS!! GARANTA A SUA!
         </h2>
@@ -31,11 +29,11 @@
           a família e os amigos.
         </p>
       </div>
-      <Carrossel />
+      <Carrossel class="wow fadeInRight" data-wow-delay="0.1s" />
     </section>
 
     <section id="steps">
-      <Steps />
+      <Steps class="wow fadeInDown" data-wow-delay="0.1s" />
     </section>
 
     <section id="call-all">
@@ -43,7 +41,10 @@
         <v-row>
           <!-- v-col para o texto -->
           <v-col cols="12" md="7">
-            <div class="box-offers-fixed-top text-center">
+            <div
+              class="box-offers-fixed-top text-center wow fadeInRight"
+              data-wow-delay="0.5s"
+            >
               <h2 class="title-offers-fixed">Tickets de montão</h2>
               <p class="text-offers">
                 Carregue R$ 110 e tenha *R$ 220 para brincar muito e mais 110
@@ -64,7 +65,7 @@
 
           <!-- v-col para a imagem -->
           <v-col cols="12" md="5">
-            <div class="girl">
+            <div class="girl wow fadeInRight" data-wow-delay="0.5">
               <img
                 src="../assets/images/botao-oferta-ticko-agosto.png"
                 alt=""
@@ -101,7 +102,10 @@
         <v-row>
           <!-- v-col para a imagem -->
           <v-col cols="12" md="6">
-            <div class="bg-celebrate-payment float-right">
+            <div
+              class="bg-celebrate-payment float-right wow zoomIn"
+              data-wow-delay="0.5s"
+            >
               <div class="celebrate-payment float-right">
                 <div class="text-part float-left">
                   Parcele
@@ -117,7 +121,10 @@
 
           <!-- v-col para o texto -->
           <v-col cols="12" md="4">
-            <div class="box-offers-fixed-top text-center wow zoomIn" data-wow-delay="2s">
+            <div
+              class="box-offers-fixed-top text-center wow zoomIn"
+              data-wow-delay="1s"
+            >
               <h2 class="title-celebrate">
                 Já pensou em comemorar seu aniversário em um parque de diversões
                 com sua família e amigos?
@@ -145,11 +152,10 @@
     <FooterPage />
     <FaleConosco />
   </v-footer>
-
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted } from "vue";
 import AppBar from "../components/AppBar.vue";
 import Carrossel from "../components/Carrossel.vue";
 import Steps from "../components/Steps.vue";
@@ -159,16 +165,14 @@ import FaleConosco from "../components/FaleConosco.vue";
 import WOW from "wow.js";
 
 onMounted(() => {
-  let wow = new WOW(
-                      {
-                      boxClass:     'wow',      // default
-                      animateClass: 'animated', // default
-                      offset:       0,          // default
-                      mobile:       true,       // default
-                      live:         true        // default
-                    }
-                    )
-                    wow.init();
+  let wow = new WOW({
+    boxClass: "wow", // default
+    animateClass: "animated", // default
+    offset: 0, // default
+    mobile: true, // default
+    live: true, // default
+  });
+  wow.init();
 });
 </script>
 
@@ -179,7 +183,7 @@ onMounted(() => {
 }
 
 svg {
-  margin-top: 150px;
+  margin-top: 200px;
   -webkit-filter: drop-shadow(5px 5px 0 black) drop-shadow(-5px -5px 0 black);
   filter: drop-shadow(0px -7px 0 #7367f0) drop-shadow(-7px 5px 0 #7367f0);
 }
@@ -190,7 +194,6 @@ svg {
   text-transform: uppercase;
   color: #f92b7d;
   text-align: center;
-  margin-top: 5%;
   margin-bottom: 10px;
 }
 
@@ -364,5 +367,9 @@ svg {
 
 #color-foot {
   background-color: #ebebeb;
+}
+
+.v-main {
+  padding-top: 0;
 }
 </style>
